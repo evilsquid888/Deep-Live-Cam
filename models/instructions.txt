@@ -1,4 +1,21 @@
-just put the models in this folder -
+INTEL ENVIRONMENT SETUP INSTRUCTIONS
 
-https://huggingface.co/hacksider/deep-live-cam/resolve/main/inswapper_128_fp16.onnx?download=true
+1. Required model files (already downloaded):
+   - inswapper_128_fp16.onnx
+   - GFPGANv1.4.pth
+
+2. For Intel CPU optimization:
+   - Run with: python run.py --execution-provider cpu --execution-threads [number of CPU threads]
+   
+3. For Intel GPU acceleration (if available):
+   - Install OpenVINO: pip install onnxruntime-openvino==1.15.0
+   - Run with: python run.py --execution-provider openvino
+
+4. Performance tips for Intel systems:
+   - Adjust --max-memory parameter based on your available RAM
+   - Use smaller resolution videos/images for better performance
+   - Consider disabling face enhancement if performance is slow
+
+Original model download links:
+https://huggingface.co/hacksider/deep-live-cam/resolve/main/inswapper_128_fp16.onnx
 https://github.com/TencentARC/GFPGAN/releases/download/v1.3.4/GFPGANv1.4.pth
